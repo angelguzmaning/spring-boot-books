@@ -34,9 +34,9 @@ public class BooksApplication {
   }
 
   @PostMapping("/books")
-  public boolean createBook(@RequestBody NewBook newBook) {
+  public Book createBook(@RequestBody NewBook newBook) {
     books.add(new Book(++lastBook, newBook.name, newBook.isbn));
-    return true;
+    return books.get(books.size() - 1);
   }
 
   @GetMapping("/books")
